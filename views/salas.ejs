@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/style.css">
+  <title>Salas</title>
+</head>
+
+<body>
+  <div class="sidebar">
+    <%- include('../components/sidebar.ejs'); %>
+  </div>
+
+  <div class="container">
+    <h1 class="text-center mt-3 mb-3">
+      <%= title %>
+    </h1>
+
+    <% if (action=='add' ) { %>
+
+      <div class="card">
+        <div class="card-header">Sample Form</div>
+        <div class="card-body">
+          <form method="POST" action="/alunos/adicionar_aluno">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label>Nome</label>
+                  <input type="text" name="first_name" id="first_name" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="submit" name="submit_button" class="btn btn-primary" value="Add" />
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <% } else if (action=='edit' ) { %>
+        <div class="card">
+          <div class="card-header">Sample Form</div>
+          <div class="card-body">
+            <form method="POST" action="/alunos/editar/<%= alunos.id %>">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label>Nome</label>
+                    <input type="text" name="first_name" id="first_name" class="form-control"
+                      value="<%= alunos.nome %>" />
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <input type="submit" name="submit_button" class="btn btn-primary" value="Edit" />
+              </div>
+            </form>
+          </div>
+        </div>
+        <% } else { %>
+          <% if(message.length> 0) { %>
+            <div class="alert alert-success">
+              <%= message %>
+            </div>
+            <% } %>
+              <div class="card">
+                <div class="card-header">
+                  <div class="row">
+                    <div class="col">Sample Data</div>
+                    <div class="col">
+                      <a href="#" class="btn btn-success btn-sm float-end">Código do projeto</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-bordered">
+                      <tr>
+                        <th>Nome</th>
+                        <th>Senha</th>
+                        <th>Opções</th>
+                      </tr>
+                      <% if(sala.length> 0){
+                        sala.forEach(function(data){
+                        %>
+                        <tr>
+                          <td>
+                            <%= data.nome %>
+                          </td>
+                          <td>
+                            <%= data.senha %>
+                          </td>
+                          <td>
+                            <a href="/salas/editar/<%= data.id %>"
+                              class="btn btn-primary btn-sm">Edit</a>
+                            <a href="/salas/excluir/<%= data.id %>"
+                              class="btn btn-danger btn-sm">Delete</a>
+                          </td>
+                        </tr>
+                        <% }); } else { %>
+                          <tr>
+                            <td colspan="5">No Data Found</td>
+                          </tr>
+                          <% } %>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <% } %>
+
+  </div>
+</body>
+
+</html>

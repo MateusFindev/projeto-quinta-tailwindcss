@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Projetos</title>
+</head>
+
+<body>
+    <div class="sidebar">
+        <%- include('../components/sidebar.ejs'); %>
+    </div>
+
+    <h1>Projetos</h1>
+    <span>
+        <p>Código do projeto:</p>
+        <input type="text">
+    </span>
+    <div class="projeto_sla">
+        <%- include('../components/project.ejs'); %>
+    </div>
+    
+</body>
+</html>
