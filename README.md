@@ -18,7 +18,7 @@ npm install
 npm start
 ```
 
-Isso abrirá um servidor localmente utilizando a porta 3000, você pode acessá-lo [http://localhost:3000](http://localhost:3000){target="_blank"}.
+Isso abrirá um servidor localmente utilizando a porta 3000, você pode acessá-lo <http://localhost:3000>.
 
 ## Tecnologias usadas
 
