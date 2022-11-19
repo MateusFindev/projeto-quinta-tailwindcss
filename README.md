@@ -19,7 +19,7 @@ npm start
 ```
 
 Isso abrirá um servidor localmente utilizando a porta 3000, você pode acessá-lo
-em <http://localhost:3000>.
+em <a href="http://example.com/" target="_blank">http://localhost:3000</a>.
 
 ## Tecnologias usadas
 
