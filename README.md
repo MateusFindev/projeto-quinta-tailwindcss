@@ -19,7 +19,7 @@ npm start
 ```
 
 Isso utilizará a porta 3000 localmente, para acessar o site após realizar os comandos
-acima, vá para a url **http://localhost:3000** ou clicar [aqui](http://localhost:3000/)
+acima, vá para a url <http://localhost:3000>.
 
 ## Tecnologias usadas
 
