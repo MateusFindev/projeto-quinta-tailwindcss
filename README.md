@@ -18,8 +18,8 @@ npm install
 npm start
 ```
 
-Isso utilizará a porta 3000 localmente, para acessar o site após realizar os comandos
-acima, vá para a url <http://localhost:3000>.
+Isso abrirá um servidor localmente utilizando a porta 3000, você pode acessá-lo
+em <http://localhost:3000>.
 
 ## Tecnologias usadas
 
