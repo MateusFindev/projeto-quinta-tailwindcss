@@ -1,7 +1,7 @@
 {
-  "name": "nodejs-tailwind",
+  "name": "projeto-quinta",
   "version": "1.0.0",
-  "description": "Uses TailwindCSS in Node.js with Express",
+  "description": "Projeto para a matéria de Linguagem de Programação, para o segundo período do curso de Engenharia de Software na FAG.",
   "main": "app.js",
   "scripts": {
     "start": "npx nodemon",
