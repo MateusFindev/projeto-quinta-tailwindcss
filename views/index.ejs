@@ -10,14 +10,14 @@
 </head>
 
 <body>
-  <h1 class="text-6xl">Landing Page</h1>
-  <span class="m-64 cursor-pointer bg-blue-500" onclick="login()">Login</p>
+  <%- include('../components/navbar.ejs'); %>
 
-  <script>
-      function login() {
-          window.location.href = "/inicio";
-      }
-  </script>
+  <h1 class="text-4xl">Landing Page</h1>
+  <div class="flex pt-8 w-full justify-center items-center">
+    <a href="/inicio">
+      <span class="flex h-16 w-64 bg-blue-300 justify-center items-center font-semibold text-xl rounded-xl border-black border-2">Clique Aqui</span>
+    </a>
+  </div>
 </body>
 
 </html>

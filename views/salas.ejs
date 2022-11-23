@@ -10,11 +10,14 @@
 </head>
 
 <body>
-  <div class="sidebar">
-    <%- include('../components/sidebar.ejs'); %>
-  </div>
+  <div class="flex h-screen">
+    <div class="absolute w-16 sm:w-0 md:w-16 lg:w-14 xl:w-64 2xl:w-64">
+      <%- include('../components/sidebar.ejs'); %>
+    </div>
 
-  <div class="container">
+    <!-- Essa div ta aqui pro conteúdo não ficar atras da sidebar -->
+    <div class="flex w-16 sm:w-0 md:w-16 lg:w-14 xl:w-64 2xl:w-64"></div>
+
     <h1 class="text-center mt-3 mb-3">
       <%= title %>
     </h1>
@@ -109,9 +112,7 @@
                   </div>
                 </div>
               </div>
-
-              <% } %>
-
+    <% } %>
   </div>
 </body>
 

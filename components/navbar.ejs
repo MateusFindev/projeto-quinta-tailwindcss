@@ -1,0 +1,115 @@
+<!-- TO-DO: Fix the classes to remove <nav id="navbar-small"...></nav> -->
+
+<header>
+  <nav id="navbar-big"
+    class="flex h-20 flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-white bg-gray-900">
+    <div>
+      <a href="/" class="pl-4 flex align-center items-center">
+        <svg width="46" height="46" viewBox="0 0 135 135" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M8.59858 102.231C18.8048 95.6951 30.7424 84.4617 26.2 71.3039C23.73 64.117 20.2947 57.9484 19.8404 50.1821C19.4316 43.6043 20.3983 37.0136 22.6793 30.8278C31.8634 6.40874 59.0039 -5.14945 83.5183 2.1789C106.23 8.96975 121.844 35.2564 112.448 58.1611C107.011 71.3891 104.583 81.6316 116.748 91.8747C120.027 94.7042 128.005 98.8354 127.976 103.787C127.976 110.267 115.201 102.372 113.782 101.283C115.399 104.112 131.468 120.793 121.248 121.981C111.837 123.07 103.519 109.97 97.8689 104.353C88.3725 94.9025 90.0194 115.813 89.9769 120.128C89.9769 126.947 85.0797 140.755 76.4069 131.757C69.3095 124.329 71.9496 112.488 66.9674 104.225C61.3885 95.1854 52.3748 113.266 50.0327 116.577C47.5061 120.269 34.8303 138.166 29.7767 128.63C25.6887 120.892 32.2183 108.823 35.4546 101.75C34.2765 104.296 25.9731 108.045 23.5455 109.277C18.2825 112.168 12.3149 113.54 6.31292 113.238C-6.46234 112.318 3.33203 105.569 8.5416 102.231H8.59858V102.231Z"
+            fill="#3B82F6" />
+        </svg>
+        <span class="pl-4 text-xl text-blue-500 font-medium hidden sm:flex">Projeto Quinta</span>
+      </a>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" id="menu-button"
+      class="h-6 w-6 cursor-pointer md:hidden block" fill="none" viewBox="0 0 24 24"
+      stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+
+    <div class="hidden w-full md:flex md:items-center md:w-auto" id="menu">
+      <ul class="pt-4 px-8 text-base text-black md:text-white md:flex md:justify-between md:pt-0">
+        <li>
+          <a class="md:p-4 py-2 block hover:text-blue-500 transition-all duration-300 ease-linear"
+            href="/inicio">Inicio</a>
+        </li>
+        <li>
+          <a class="md:p-4 py-2 block hover:text-blue-500 transition-all duration-300 ease-linear"
+            href="/salas">Salas</a>
+        </li>
+        <li>
+          <a class="md:p-4 py-2 block hover:text-blue-500 transition-all duration-300 ease-linear"
+            href="/projetos">Projetos</a>
+        </li>
+        <li>
+          <a class="md:p-4 py-2 block hover:text-blue-500 transition-all duration-300 ease-linear"
+            href="/ajuda">Sobre nós</a>
+        </li>
+        <li>
+          <a class="md:p-4 py-2 block hover:text-purple-500 text-blue-500 transition-all duration-300 ease-linear font-medium text-lg"
+            href="/login">Cadastre-se</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- TO-DO: Fix classes to remove this monstrosity -->
+  <nav id="navbar-small"
+    class="flex w-full flex-wrap justify-between py-4 md:py-0 px-4 text-lg text-white bg-gray-900 hidden">
+    <div>
+      <a href="/" class="pl-4 flex align-center items-center">
+        <svg width="46" height="46" viewBox="0 0 135 135" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M8.59858 102.231C18.8048 95.6951 30.7424 84.4617 26.2 71.3039C23.73 64.117 20.2947 57.9484 19.8404 50.1821C19.4316 43.6043 20.3983 37.0136 22.6793 30.8278C31.8634 6.40874 59.0039 -5.14945 83.5183 2.1789C106.23 8.96975 121.844 35.2564 112.448 58.1611C107.011 71.3891 104.583 81.6316 116.748 91.8747C120.027 94.7042 128.005 98.8354 127.976 103.787C127.976 110.267 115.201 102.372 113.782 101.283C115.399 104.112 131.468 120.793 121.248 121.981C111.837 123.07 103.519 109.97 97.8689 104.353C88.3725 94.9025 90.0194 115.813 89.9769 120.128C89.9769 126.947 85.0797 140.755 76.4069 131.757C69.3095 124.329 71.9496 112.488 66.9674 104.225C61.3885 95.1854 52.3748 113.266 50.0327 116.577C47.5061 120.269 34.8303 138.166 29.7767 128.63C25.6887 120.892 32.2183 108.823 35.4546 101.75C34.2765 104.296 25.9731 108.045 23.5455 109.277C18.2825 112.168 12.3149 113.54 6.31292 113.238C-6.46234 112.318 3.33203 105.569 8.5416 102.231H8.59858V102.231Z"
+            fill="#3B82F6" />
+        </svg>
+        <span class="pl-4 text-xl text-blue-500 font-medium hidden">Projeto Quinta</span>
+      </a>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" id="menu-button-small" class="h-6 w-6 cursor-pointer block mt-3" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+
+    <div class="w-full mt-4 flex items-center justify-center" id="menu">
+      <ul class="pt-4 px-8 text-base text-whiter place-content-center">
+        <li class="flex items-center justify-center">
+          <a class="py-4 flex hover:text-blue-500 transition-all duration-300 ease-linear"
+            href="/inicio">Inicio</a>
+        </li>
+        <li class="flex items-center justify-center">
+          <a class="py-4 flex hover:text-blue-500 transition-all duration-300 ease-linear"
+            href="/salas">Salas</a>
+        </li>
+        <li class="flex items-center justify-center">
+          <a class="py-4 flex hover:text-blue-500 transition-all duration-300 ease-linear"
+            href="/projetos">Projetos</a>
+        </li>
+        <li class="flex items-center justify-center">
+          <a class="py-4 flex hover:text-blue-500 transition-all duration-300 ease-linear"
+            href="/ajuda">Sobre nós</a>
+        </li>
+        <li class="flex items-center justify-center">
+          <a class="py-8 flex hover:text-purple-500 text-blue-500 transition-all duration-300 ease-linear font-medium text-lg"
+            href="/login">Cadastre-se</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- JavaScript -->
+<script>
+  const button = document.querySelector('#menu-button');
+  const button_small = document.querySelector('#menu-button-small');
+  const navbar_big = document.querySelector('#navbar-big');
+  const navbar_small = document.querySelector('#navbar-small');
+
+  button.addEventListener('click', () => {
+    navbar_big.classList.toggle('hidden');
+    navbar_small.classList.toggle('hidden');
+  });
+
+  button_small.addEventListener('click', () => {
+    navbar_big.classList.toggle('hidden');
+    navbar_small.classList.toggle('hidden');
+  });
+</script>

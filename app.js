@@ -32,5 +32,5 @@ app.get('/', (req, res) => {
 });
 
 const server = app.listen(3000, () => {
-    console.log(`🚀 The application started on http://localhost:${server.address().port}`);
+    console.log(`The application started on http://localhost:${server.address().port}`);
 });
