@@ -11,6 +11,7 @@ const configuracoesRouter = require('./routes/configuracoes');
 const ajudaRouter = require('./routes/ajuda');
 const perfilRouter = require('./routes/perfil');
 const loginRouter = require('./routes/login');
+const testeRouter = require('./routes/test');
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use('/configuracoes', configuracoesRouter);
 app.use('/ajuda', ajudaRouter);
 app.use('/perfil', perfilRouter);
 app.use('/login', loginRouter);
+app.use('/test', testeRouter);
 
 app.get('/', (req, res) => {
     res.render('index');
