@@ -1,0 +1,30 @@
+<canvas id="chart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('chart');
+
+  const v1 = 5;
+  const v2 = 3;
+  const v3 = 2;
+
+  new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['Finalizados', 'Pendentes', 'Em andamento'],
+      datasets: [{
+        data: [v1, v2, v3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      plugins: {
+        legend: {
+          display: false
+        },
+      },
+      responsive: true,
+    }
+  });
+</script>
