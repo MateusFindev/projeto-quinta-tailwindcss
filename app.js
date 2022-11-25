@@ -26,6 +26,7 @@ const ajudaRouter = require('./routes/ajuda');
 const perfilRouter = require('./routes/perfil');
 const loginRouter = require('./routes/login');
 const testeRouter = require('./routes/test');
+const addSala = require('./routes/adicionar_sala');
 const { ppid } = require('process');
 
 app.set('views', path.join(__dirname, 'views'));
@@ -52,6 +53,7 @@ app.use('/ajuda', ajudaRouter);
 app.use('/perfil', perfilRouter);
 app.use('/login', loginRouter);
 app.use('/test', testeRouter);
+app.use('/adicionar_sala', addSala);
 
 app.post('/save', function (req, res, next) {
     var name = req.body.name;
@@ -65,6 +67,19 @@ app.post('/save', function (req, res, next) {
         console.log('Row has been updated')
         // req.flash('success', 'Data stored!')
         res.redirect('/inicio')
+    })
+})
+
+app.post('/adicionar', function (req, res, next) {
+    var name = req.body.name;
+    var password = req.body.password;
+
+    var sql = `INSERT INTO sala (nome, senha) VALUES ("${name}", "${password}")`;
+
+    db.query(sql, function (err, result) {
+        if (err) throw err
+        console.log('Row has been updated')
+        res.redirect('/salas')
     })
 })
 
