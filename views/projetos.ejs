@@ -12,10 +12,14 @@
 <body>
   <div class="flex h-screen">
     <%- include('../components/sidebar.ejs'); %>
-    <div class="left-4 flex m-6">
+    <div class="ml-20 flex m-8">
       <p class="text-4xl font-semibold">Projetos</p>
     </div>
-    <%- include('../components/project.ejs'); %>
+    <div id="Projetos" class="flex justify-around ">
+      <div class="mt-40 -ml-40"><%- include('../components/project.ejs'); %></div>
+      <div class="mt-40 ml-6"><%- include('../components/project.ejs'); %></div>
+      <div class="mt-40 ml-6"><%- include('../components/project.ejs'); %></div>
+    </div>
   </div>
 </body>
 
