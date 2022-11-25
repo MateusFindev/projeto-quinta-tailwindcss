@@ -10,23 +10,31 @@
 </head>
 
 <body class="flex h-screen">
-  <div class="border-2 border-gray-900 m-1 box-border h-80 w-80 flex flex-col">
-    <div class="bg-gray-400">
-      <div>
+  <div class="shadow-lg m-1 box-border h-80 w-80 flex flex-col rounded-3xl overflow-hidden">
+    <div id="Titulo" class="bg-gray-400 h-24 ">
+      <div class="flex justify-center mt-2">
         <span class="text-2xl">Título do projeto</span> <!-- Linkar com banco -->
       </div>
       <div class="flex justify-center">
-        <img src="../public/images/Screenshot_1.png" alt="Imagem não encontrada">
+        <img class="h-20 w-20 object-cover mt-3 rounded-full" src="images/Screenshot_1.png" alt="Imagem não encontrada">
       </div>
     </div>
-    <div>
-      <span class="">Data de entrega:</span>
-    </div> 
-    <div>
-      <span>xx/xx/xx</span> <!-- Linkar com banco -->
-    </div> 
-    <div>
-      <span>00:00 - Entregar Prototipagem</span> <!-- Linkar com banco -->
+    <div id="Informações" class="ml-4 mt-16"   >
+      <div>
+        <span class="">Data de entrega: 01/10/2022</span>
+      </div> 
+      <div>
+        <span>00:00 - Entregar Prototipagem</span> <!-- Linkar com banco -->
+      </div>
+    </div>
+    <div id="Imagens pessoas" class="flex align-middle">
+      <div id="Qtd de pessoas" class="ml-56 mt-20 inline box-border">
+        <span class="text-gray-600">1/5</span>
+      </div>
+      <div class="mt-16 ml-5 inline">
+        <img class="h-10 w-10 object-cover rounded-full border-2 border-gray-400" src="images\person_2.png" alt="Img">
+      </div>
+      </div>
     </div>
   </div>
 </body>
