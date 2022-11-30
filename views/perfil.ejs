@@ -12,10 +12,47 @@
 <body>
   <div class="flex h-screen">
     <%- include('../components/sidebar.ejs'); %>
+    <div class="flex justify-center w-screen">
+      <div class="flex flex-col justify-center ">
 
-      <div class="left-4 flex">
-        <p class="text-2xl">Perfil</p>
+        <div id="titulo" class="flex items-center justify-center">
+          <img src="images\user.svg" alt="User" class="h-10 w-10">
+          <p class="text-4xl font-semibold ml-4">Perfil</p>
+        </div>
+    
+        <div id="informacoes" class="flex flex-col items-center mt-16">
+  
+          <div id="nome" class="flex flex-col">
+            <div>
+              <p class="text-xl font-medium">Nome</p>
+            </div>
+            <div class="flex border border-gray-600 rounded-full mt-4 w-80 h-8 items-center">
+              <span class="text-gray-600 pl-4">Mateus Fin</span>
+            </div>
+          </div>
+      
+          <div id="e-mail" class="flex flex-col mt-6">
+            <div>
+              <p class="text-xl font-medium">E-mail</p>
+            </div>
+            <div class="flex border border-gray-600 rounded-full mt-4 w-80 h-8 items-center">
+              <span class="text-gray-600 pl-4">mateusfin@gmail.com</span>
+            </div>
+          </div>
+      
+          <div id="data_aniversario" class="flex flex-col mt-6 ">
+            <div>
+              <p class="text-xl font-medium">Data de Aniverário</p>
+            </div>
+            <div class="flex border border-gray-600 rounded-full mt-4 w-80 h-8 items-center">
+              <span class="text-gray-600 pl-4">21/11/2003</span>
+            </div>
+          </div>
+        </div>
+      
       </div>
+    </div>
+    
   </div>
 </body>
 
