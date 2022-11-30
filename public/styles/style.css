@@ -8071,6 +8071,12 @@ video {
   border-color: rgba(60, 54, 107, var(--border-opacity));
 }
 
+.border-violet-600 {
+  --border-opacity: 1;
+  border-color: #7C3AED;
+  border-color: rgba(124, 58, 237, var(--border-opacity));
+}
+
 .border-purple-100 {
   --border-opacity: 1;
   border-color: #faf5ff;
@@ -16898,6 +16904,12 @@ video {
   --text-opacity: 1;
   color: #3c366b;
   color: rgba(60, 54, 107, var(--text-opacity));
+}
+
+.text-violet-600 {
+  --text-opacity: 1;
+  color: #7C3AED;
+  color: rgba(124, 58, 237, var(--text-opacity));
 }
 
 .text-purple-100 {
@@ -29529,6 +29541,12 @@ video {
     --border-opacity: 1;
     border-color: #3c366b;
     border-color: rgba(60, 54, 107, var(--border-opacity));
+  }
+
+  .sm\:border-purple-600 {
+    --border-opacity: 1;
+    border-color: #7C3AED;
+    border-color: rgba(124, 58, 237, var(--border-opacity));
   }
 
   .sm\:border-purple-100 {
