@@ -1,13 +1,7 @@
-const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
-
 const session = require('express-session');
-
 const flash = require('connect-flash');
-
 const db = require('./database');
 
 const app = express();
@@ -25,20 +19,18 @@ const configuracoesRouter = require('./routes/configuracoes');
 const ajudaRouter = require('./routes/ajuda');
 const perfilRouter = require('./routes/perfil');
 const loginRouter = require('./routes/login');
-const testeRouter = require('./routes/test');
 const addSala = require('./routes/adicionar_sala');
-const { ppid } = require('process');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
-    secret : 'webslesson',
-    cookie : {maxAge : 60000},
-    saveUninitialized : false,
-    resave : false
-  }));
+  secret: 'webslesson',
+  cookie: { maxAge: 60000 },
+  saveUninitialized: false,
+  resave: false
+}));
 
 app.use(flash());
 
@@ -52,41 +44,40 @@ app.use('/configuracoes', configuracoesRouter);
 app.use('/ajuda', ajudaRouter);
 app.use('/perfil', perfilRouter);
 app.use('/login', loginRouter);
-app.use('/test', testeRouter);
 app.use('/adicionar_sala', addSala);
 
 app.post('/save', function (req, res, next) {
-    var name = req.body.name;
-    var email = req.body.email;
-    var password = req.body.password;
+  var name = req.body.name;
+  var email = req.body.email;
+  var password = req.body.password;
 
-    var sql = `INSERT INTO alunos (nome, senha, email) VALUES ("${name}", "${password}", "${email}")`;
+  var sql = `INSERT INTO alunos (nome, senha, email) VALUES ("${name}", "${password}", "${email}")`;
 
-    db.query(sql, function (err, result) {
-        if (err) throw err
-        console.log('Row has been updated')
-        // req.flash('success', 'Data stored!')
-        res.redirect('/inicio')
-    })
+  db.query(sql, function (err, result) {
+    if (err) throw err
+    console.log('Row has been updated')
+    // req.flash('success', 'Data stored!')
+    res.redirect('/inicio')
+  })
 })
 
 app.post('/adicionar', function (req, res, next) {
-    var name = req.body.name;
-    var password = req.body.password;
+  var name = req.body.name;
+  var password = req.body.password;
 
-    var sql = `INSERT INTO sala (nome, senha) VALUES ("${name}", "${password}")`;
+  var sql = `INSERT INTO sala (nome, senha) VALUES ("${name}", "${password}")`;
 
-    db.query(sql, function (err, result) {
-        if (err) throw err
-        console.log('Row has been updated')
-        res.redirect('/salas')
-    })
+  db.query(sql, function (err, result) {
+    if (err) throw err
+    console.log('Row has been updated')
+    res.redirect('/salas')
+  })
 })
 
 app.get('/', (req, res) => {
-    res.render('index');
+  res.render('index');
 });
 
 const server = app.listen(3000, () => {
-    console.log(`The application started on http://localhost:${server.address().port}`);
+  console.log(`🚀 The application started on http://localhost:${server.address().port}`);
 });
