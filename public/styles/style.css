@@ -2375,6 +2375,24 @@ video {
   background-color: rgba(112, 36, 89, var(--bg-opacity));
 }
 
+.bg-lime-500 {
+  --bg-opacity: 1;
+  background-color: #84CC16;
+  background-color: rgba(132, 204, 22, var(--bg-opacity));
+}
+
+.bg-cyan-400 {
+  --bg-opacity: 1;
+  background-color: #22D3EE;
+  background-color: rgba(34, 211, 238, var(--bg-opacity));
+}
+
+.active\:shadow-blue-600 {
+  --bg-opacity: 1;
+  background-color: #3182ce;
+  background-color: rgba(49, 130, 206, var(--bg-opacity));
+}
+
 .hover\:bg-transparent:hover {
   background-color: transparent;
 }
