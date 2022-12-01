@@ -9,19 +9,63 @@
 </head>
 
 <body>
-  <div class="flex h-screen">
+  <div id="modal"
+    class="absolute w-1/2 xl:w-2/5 left-0 h-min bg-gray-300 right-0 ml-auto mr-auto min-h-screen bg-gray-100 hidden z-10">
+    <div class="px-8 py-6 mx-4 mt-4 text-left bg-white shadow-lg">
+      <h3 class="text-2xl font-bold text-center">Adicionar Sala</h3>
+      <form action="/adicionar" method="POST">
+        <div class="mt-4">
+          <div>
+            <label class="block" for="Nome">Nome<label>
+                <input id="name" name="name" type="text" placeholder="Nome" required
+                  class="w-full px-4 py-2 mt-2 border rounded-md">
+          </div>
+          <div class="mt-4">
+            <% if (data[0].length) { %>
+              <select name="professor" id="professor"
+                class="w-full px-4 py-2 mt-2 border rounded-md">
+                <% for (var i=0; i < data[0].length; i++) { %>
+                  <option value="<%= data[2][i][0].ID %>">
+                    <%= data[2][i][0].nome %>
+                  </option>
+                  <% } %>
+              </select>
+              <% } else { %>
+                <span>Nenhum professor encontrado</span>
+                <% } %>
+          </div>
+          <div class="mt-4">
+            <label class="block">Senha<label>
+                <input id="password" name="password" type="text" placeholder="Senha" required
+                  class="w-full px-4 py-2 mt-2 border rounded-md">
+          </div>
+          <div class="flex">
+            <button type="submit"
+              class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg transtion-all duration-200 ease-linear hover:bg-blue-900">Adicionar</button>
+          </div>
+          <div class="flex pointer">
+            <div onclick="showModal()"
+              class="flex justify-center w-full px-6 py-2 mt-4 text-red-400 rounded-lg border-2 border-red-400 cursor-pointer transtion-all duration-200 ease-linear hover:bg-red-400 hover:text-white">
+              Cancelar</div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="salas" class="flex h-screen">
     <%- include('../components/sidebar.ejs'); %>
 
-      <a href="/adicionar_sala">
+      <a href="#" onclick="showModal()">
         <div class="absolute right-0 mr-8 mt-4 px-4 py-2 bg-blue-300 rounded-lg">
           <span class="no-underline">Adicionar Salas</span>
         </div>
       </a>
 
       <div class="flex">
-        <% if (data[0].length) { for (var i=0; i < data[0].length; i++) { %>
+        <% if (data[0].length) { const bg_colors=["bg-gray-400", "bg-blue-400" , "bg-red-400", "bg-green-400" , "bg-yellow-400" , "bg-orange-400" , "bg-lime-500" , "bg-cyan-400", "bg-indigo-500" , "bg-pink-400" ]; for (var i=0; i < data[0].length; i++) { %>
           <div class="h-80 w-80 flex flex-col rounded-3xl overflow-hidden mx-8 mt-16 border-2">
-            <div class="bg-gray-400 h-24 ">
+            <div class="<%= bg_colors[Math.floor(Math.random() * bg_colors.length)] %> h-24 ">
               <div class="flex justify-center mt-2">
                 <span class="text-2xl">
                   <%= data[0][i].nome %>
@@ -33,16 +77,46 @@
                 </span>
               </div>
             </div>
-            <div id="info" class="ml-4 mt-16">
-              <div>
-                <span class="mt-8">Atividade</span>
-              </div>
+            <div class="ml-4 mt-4">
+              <a href="/projetos">
+                <span class="mt-8">Projetos</span>
+              </a>
+            </div>
+            <div class="ml-4 mt-8">
+              <a href="/atividades">
+                <span class="mt-8">Ver atividades</span>
+              </a>
+            </div>
+            <div class="ml-4 mt-20">
+              <form onsubmit="return validate(this);" action="/excluir" method="POST">
+                <input id="salaID" name="salaID" type="text" placeholder="Nome"
+                  value="<%= data[0][i].ID %>" class="hidden">
+
+                <button type="submit" class="text-red-400 font-medium">
+                  Excluir
+                </button>
+              </form>
             </div>
           </div>
           <% } } else{ %>
             <span class="text-xl">Não está em nenhuma sala</span>
             <% } %>
       </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const salas = document.getElementById('salas');
+
+    function showModal() {
+      modal.classList.toggle('hidden');
+      salas.classList.toggle('bg-gray-300');
+    }
+
+    function validate(form) {
+      return confirm("Deseja mesmo excluir a sala?");
+    }
+  </script>
 </body>
 
 </html>
