@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0%;
+      box-sizing: border-box;
+      font-family: Helvetica;
+      border: none;
+    }
+
+    body {
+      background-color: rgb(221, 221, 221);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-300">
+  <div class="w-96 ml-auto mr-auto mt-16 text-center rounded-xl bg-white px-6 py-6">
+    <div class="flex items-center justify-center">
+      <svg width="56" height="56" viewBox="0 0 135 135" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M8.59858 102.231C18.8048 95.6951 30.7424 84.4617 26.2 71.3039C23.73 64.117 20.2947 57.9484 19.8404 50.1821C19.4316 43.6043 20.3983 37.0136 22.6793 30.8278C31.8634 6.40874 59.0039 -5.14945 83.5183 2.1789C106.23 8.96975 121.844 35.2564 112.448 58.1611C107.011 71.3891 104.583 81.6316 116.748 91.8747C120.027 94.7042 128.005 98.8354 127.976 103.787C127.976 110.267 115.201 102.372 113.782 101.283C115.399 104.112 131.468 120.793 121.248 121.981C111.837 123.07 103.519 109.97 97.8689 104.353C88.3725 94.9025 90.0194 115.813 89.9769 120.128C89.9769 126.947 85.0797 140.755 76.4069 131.757C69.3095 124.329 71.9496 112.488 66.9674 104.225C61.3885 95.1854 52.3748 113.266 50.0327 116.577C47.5061 120.269 34.8303 138.166 29.7767 128.63C25.6887 120.892 32.2183 108.823 35.4546 101.75C34.2765 104.296 25.9731 108.045 23.5455 109.277C18.2825 112.168 12.3149 113.54 6.31292 113.238C-6.46234 112.318 3.33203 105.569 8.5416 102.231H8.59858V102.231Z"
+          fill="#3B82F6" />
+      </svg>
+    </div>
+    <div class="mt-4">
+      <span class="text-blue-500 text-xl"> Projeto de Quinta</span>
+    </div>
+
+    <div class="mt-10">
+      <span class="font-semibold text-2xl">Login</span>
+    </div>
+    <form class="mt-8 mb-10" action="/entrar" method="POST">
+      <label class="block w-full text-left font-semibold" for="email">E-mail</label>
+      <input
+        class="block w-full text-left p-4 border-solid border-b-2 border-r-0 border-l-0 border-t-0 focus:border-blue-500 mb-8"
+        type="email" name="email" id="email" placeholder="Digite seu e-mail:" autocomplete="off">
+      <label class="block w-full text-left font-semibold" for="password">Senha</label>
+      <input
+        class="block w-full text-left p-4 border-solid border-b-2 border-r-0 border-l-0 border-t-0 focus:border-blue-500 mb-8"
+        type="password" name="password" id="password" placeholder="Digite a sua senha:">
+      <button type="submit"
+        class="uppercase font-semibold border-none h-10 rounded-lg bg-blue-500 w-full text-white mt-4 transition-all duration-200 ease-linear hover:bg-blue-700">
+        Login
+      </button>
+    </form>
+    <div class="flex flex-col">
+      <span>Ainda não tem uma conta?</span>
+      <a href="/cadastro" class="my-4">
+        <span class="text-base text-blue-500">
+          Registre-se
+        </span>
+      </a>
+    </div>
+  </div>
+</body>
+
+</html>
