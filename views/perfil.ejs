@@ -13,6 +13,7 @@
   <div class="flex h-screen">
     <%- include('../components/sidebar.ejs'); %>
     <div class="flex justify-center w-screen">
+
       <div class="flex flex-col justify-center ">
 
         <div id="titulo" class="flex items-center justify-center">
@@ -48,19 +49,29 @@
               <span class="text-gray-600 pl-4">21/11/2003</span>
             </div>
           </div>
+
+          <div id="senha" class="flex flex-col mt-6 ">
+            <div>
+              <p class="text-xl font-medium">Senha</p>
+            </div>
+            <div class="flex border border-gray-600 rounded-full mt-4 w-80 h-8 items-center">
+              <span class="text-gray-600 pl-4">123456</span>
+            </div>
+          </div>
+
         </div>
       
         <div id="botões" class="flex justify-around py-4 mt-6">
-          <button id="editar" class="flex items-center px-2 py-2 rounded-lg border-violet-600 border-2 cursor-pointer hover:bg-purple-200 transition duration-300">
+          <button id="editar" onclick="showModal()" class="flex items-center px-2 py-2 rounded-lg border-violet-600 border-2 cursor-pointer hover:bg-purple-200 transition duration-300 w-32 justify-center">
             <div id="icone" class="mr-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="rgb(124,58,237)" d="M5 23.7q-.825 0-1.413-.588Q3 22.525 3 21.7v-14q0-.825.587-1.413Q4.175 5.7 5 5.7h8.925l-2 2H5v14h14v-6.95l2-2v8.95q0 .825-.587 1.412q-.588.588-1.413.588Zm7-9Zm4.175-8.425l1.425 1.4l-6.6 6.6V15.7h1.4l6.625-6.625l1.425 1.4l-7.2 7.225H9v-4.25Zm4.275 4.2l-4.275-4.2l2.5-2.5q.6-.6 1.438-.6q.837 0 1.412.6l1.4 1.425q.575.575.575 1.4T22.925 8Z"/></svg>
             </div>
             <div id="texto" class="flex">
-              <p class="text-violet-600 font-semibold">Alterar</p>
+              <p class="text-violet-600 font-semibold">Editar</p>
             </div>
           </button>
 
-          <button id="excluir" class="flex items-center px-2 py-2 rounded-lg border-red-600 border-2 cursor-pointer hover:bg-red-200 transition duration-300">
+          <button id="excluir" onclick="validate(form)" class="flex items-center px-2 py-2 rounded-lg border-red-600 border-2 cursor-pointer hover:bg-red-200 transition duration-300 w-32 justify-center">
             <div id="icon_trash" class="mr-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512"><path fill="none" stroke="rgba(229, 62, 62)" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="m112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320"/><path fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 112h352"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 112V72h0a23.93 23.93 0 0 1 24-24h80a23.93 23.93 0 0 1 24 24h0v40m-64 64v224m-72-224l8 224m136-224l-8 224"/></svg>
             </div>
@@ -70,65 +81,99 @@
           </button>
         </div>
 
+        <div id="fade" class="invisible fixed left-0 top-0 w-full h-full bg-black bg-opacity-50 z-40"></div>
+        <div id="modal" class="invisible fixed z-50 flex justify-center items-center">
+          <div class="px-16 bg-white py-16 rounded-3xl ">
+            <div id="modal_header" class="flex items-center justify-center">
+              <img src="images\user.svg" alt="User" class="h-10 w-10">
+              <p class="text-4xl font-semibold ml-4">Perfil</p>
+            </div>
+  
+            <div id="modal_body" class="flex flex-col items-center mt-16">
+              <div id="nome" class="flex flex-col">
+                <div>
+                  <p class="text-xl font-medium">Nome</p>
+                </div>
+  
+                <input type="text" class="border border-gray-600 focus:border-gray-600 active:border-gray-600 rounded-full mt-4 w-80 h-8 ml-0 pl-4"></input>
+              </div>
+          
+              <div id="modal_e-mail" class="flex flex-col mt-6">
+                <div>
+                  <p class="text-xl font-medium">E-mail</p>
+                </div>
+                <input type="text" class="border border-gray-600 focus:border-gray-600 active:border-gray-600 rounded-full mt-4 w-80 h-8 ml-0 pl-4"></input>
+              </div>
+          
+              <div id="modal_data_aniversario" class="flex flex-col mt-6 ">
+                <div>
+                  <p class="text-xl font-medium">Data de Aniverário</p>
+                </div>
+                <input type="text" placeholder="21/11/2022" class="border border-gray-600 focus:border-gray-600 active:border-gray-600 rounded-full mt-4 w-80 h-8 ml-0 pl-4"></input>
+              </div>
+  
+              <div id="modal_senha" class="flex flex-col mt-6 ">
+                <div>
+                  <p class="text-xl font-medium">Senha</p>
+                </div>
+                <input type="text" class="border border-gray-600 focus:border-gray-600 active:border-gray-600 rounded-full mt-4 w-80 h-8 ml-0 pl-4"></input>
+              </div>
+  
+            </div>
+  
+            <div id="modal_bottom" class="flex mt-10 justify-around">
+  
+              <button id="cancelar" onclick="hideModal()" class="flex items-center justify-center px-2 py-2 rounded-lg border-red-600 border-2 cursor-pointer hover:bg-red-200 transition duration-300 w-32">
+                <div id="icon_save" class="mr-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256"><path fill="rgb(229, 62, 62)" d="M208.5 191.5a12 12 0 0 1 0 17a12.1 12.1 0 0 1-17 0L128 145l-63.5 63.5a12.1 12.1 0 0 1-17 0a12 12 0 0 1 0-17L111 128L47.5 64.5a12 12 0 0 1 17-17L128 111l63.5-63.5a12 12 0 0 1 17 17L145 128Z"/></svg>
+                </div>
+  
+                <div id="text_save">
+                  <p class="text-red-600 font-semibold">Cancelar</p>
+                </div>
+              </button>
+  
+              <button id="salvar" onclick="hideModal()" class="flex items-center justify-center px-2 py-2 rounded-lg border-green-600 border-2 cursor-pointer hover:bg-green-200 transition duration-300 w-32">
+                <div id="icon_save" class="mr-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><path fill="rgb(56, 161, 105)" d="M4 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1V9.5A1.5 1.5 0 0 1 5.5 8h5A1.5 1.5 0 0 1 12 9.5V13a1 1 0 0 0 1-1V5.621a1 1 0 0 0-.293-.707l-1.621-1.621A1 1 0 0 0 10.379 3H10v1.5A1.5 1.5 0 0 1 8.5 6h-2A1.5 1.5 0 0 1 5 4.5V3H4Zm2 0v1.5a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5V3H6Zm5 10V9.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0-.5.5V13h6ZM2 4a2 2 0 0 1 2-2h6.379a2 2 0 0 1 1.414.586l1.621 1.621A2 2 0 0 1 14 5.621V12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4Z"/></svg>
+                </div>
+  
+                <div id="text_save">
+                  <p class="text-green-600 font-semibold">Salvar</p>
+                </div>
+              </button>
+  
+            </div>
 
-        <!-- <div id="fade" class="fixed left-0 top-0 w-full h-full bg-black bg-opacity-50 z-40"></div>
-        <div id="modal" class="fixed z-50 bg-white px-16 py-16 rounded-3xl">
-          <div id="modal_header" class="flex items-center justify-center">
-            <img src="images\user.svg" alt="User" class="h-10 w-10">
-            <p class="text-4xl font-semibold ml-4">Perfil</p>
           </div>
 
-          <div id="modal_body" class="flex flex-col items-center mt-16">
-            <div id="nome" class="flex flex-col">
-              <div>
-                <p class="text-xl font-medium">Nome</p>
-              </div>
+        </div>
 
-              <input type="text" class="border border-gray-600 focus:border-gray-600 active:border-gray-600 rounded-full mt-4 w-80 h-8 ml-0 pl-4"></input>
-            </div>
-        
-            <div id="e-mail" class="flex flex-col mt-6">
-              <div>
-                <p class="text-xl font-medium">E-mail</p>
-              </div>
-              <input type="text" class="border border-gray-600 focus:border-gray-600 active:border-gray-600 rounded-full mt-4 w-80 h-8 ml-0 pl-4"></input>
-            </div>
-        
-            <div id="data_aniversario" class="flex flex-col mt-6 ">
-              <div>
-                <p class="text-xl font-medium">Data de Aniverário</p>
-              </div>
-              <input type="text" placeholder="21/11/2022" class="border border-gray-600 focus:border-gray-600 active:border-gray-600 rounded-full mt-4 w-80 h-8 ml-0 pl-4"></input>
-            </div>
-          </div>
-
-          <div id="modal_bottom" class="flex mt-10 justify-around">
-
-            <button id="cancelar" class="flex items-center px-2 py-2 rounded-lg border-red-600 border-2 cursor-pointer hover:bg-red-200 transition duration-300">
-              <div id="icon_save" class="mr-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256"><path fill="rgb(229, 62, 62)" d="M208.5 191.5a12 12 0 0 1 0 17a12.1 12.1 0 0 1-17 0L128 145l-63.5 63.5a12.1 12.1 0 0 1-17 0a12 12 0 0 1 0-17L111 128L47.5 64.5a12 12 0 0 1 17-17L128 111l63.5-63.5a12 12 0 0 1 17 17L145 128Z"/></svg>
-              </div>
-
-              <div id="text_save">
-                <p class="text-red-600 font-semibold">Cancelar</p>
-              </div>
-            </button>
-
-            <button id="salvar" class="flex items-center px-2 py-2 rounded-lg border-green-600 border-2 cursor-pointer hover:bg-green-200 transition duration-300">
-              <div id="icon_save" class="mr-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><path fill="rgb(56, 161, 105)" d="M4 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1V9.5A1.5 1.5 0 0 1 5.5 8h5A1.5 1.5 0 0 1 12 9.5V13a1 1 0 0 0 1-1V5.621a1 1 0 0 0-.293-.707l-1.621-1.621A1 1 0 0 0 10.379 3H10v1.5A1.5 1.5 0 0 1 8.5 6h-2A1.5 1.5 0 0 1 5 4.5V3H4Zm2 0v1.5a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5V3H6Zm5 10V9.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0-.5.5V13h6ZM2 4a2 2 0 0 1 2-2h6.379a2 2 0 0 1 1.414.586l1.621 1.621A2 2 0 0 1 14 5.621V12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4Z"/></svg>
-              </div>
-
-              <div id="text_save">
-                <p class="text-green-600 font-semibold">Salvar</p>
-              </div>
-            </button>
-
-          </div>
-        </div> -->
       </div>
+
     </div>
+
   </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const fade = document.getElementById('fade');
+
+    function showModal() {
+      modal.classList.remove('invisible');
+      fade.classList.remove('invisible');
+    }
+
+    function hideModal() {
+      modal.classList.add('invisible');
+      fade.classList.add('invisible');
+    }
+
+    function validate(form) {
+      return confirm("Deseja mesmo excluir o seu perfil?");
+    }
+  </script>
+
 </body>
 
 </html>
